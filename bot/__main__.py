@@ -60,8 +60,8 @@ async def _start(event):
             f"Hi {event.sender.first_name}\n**How Are You?**",
             buttons=[
                 [
-                    Button.url("Developer", url="t.me/kaif_00z"),
-                    Button.url("Repo", url="https://github.com/kaif-00z/AutoAnimeBot/"),
+                    Button.url("𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋", url="t.me/Snowball_Official"),
+                    Button.url("𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/Roofiverse/"),
                 ]
             ],
         )
@@ -140,7 +140,7 @@ async def further_work(msg_id, filename, quality):
             btn.append(
                 [
                     Button.url(
-                        "📜 MediaInfo",
+                        "📃 𝖬𝖾𝗍𝖺𝖽𝖺𝗍𝖺",
                         url=link_info,
                     )
                 ]
@@ -160,7 +160,7 @@ async def further_work(msg_id, filename, quality):
             btn.append(
                 [
                     Button.url(
-                        "📺 Sample & ScreenShots",
+                        "📺 𝖲𝖺𝗆𝗉𝗅𝖾 & 𝖲𝖼𝗋𝖾𝖾𝗇𝗌𝗁𝗈𝗍𝗌",
                         url=f"https://t.me/{((await bot.get_me()).username)}?start={hash}",
                     )
                 ]
@@ -192,7 +192,7 @@ async def upload(torrent_link, name, compress=False):
                     f"```New File Downloaded, Named {name}\nNow Going To Commpress```",
                     buttons=[[Button.inline("STATS", data=f"tas_{_code}")]],
                 )
-                cmd = f'''{Var.FFMPEG} -i """{dl}""" -metadata "Encoded By"="t.me/Anime_Flares" -preset ultrafast -c:v libx265 -crf 25 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? """{out}""" -y'''
+                cmd = f'''{Var.FFMPEG} -i """{dl}""" -preset faster -c:v libx265 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 1 -metadata title=@𝖠𝗇𝗂𝗆𝖾_𝖲𝗎𝗉𝖾𝗋𝗇𝗈𝗏𝖺 -metadata author=@𝖠𝗇𝗂𝗆𝖾_𝖲𝗎𝗉𝖾𝗋𝗇𝗈𝗏𝖺 -metadata:s:s title=@𝖠𝗇𝗂𝗆𝖾_𝖲𝗎𝗉𝖾𝗋𝗇𝗈𝗏𝖺 -metadata:s:a title=@𝖠𝗇𝗂𝗆𝖾_𝖲𝗎𝗉𝖾𝗋𝗇𝗈𝗏𝖺 -metadata:s:v title=@𝖠𝗇𝗂𝗆𝖾_𝖲𝗎𝗉𝖾𝗋𝗇𝗈𝗏𝖺 """{out}""" -y'''
                 process = await asyncio.create_subprocess_shell(
                     cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
                 )
