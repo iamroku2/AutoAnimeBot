@@ -60,8 +60,8 @@ async def _start(event):
             f"Hi {event.sender.first_name}\n**How Are You?**",
             buttons=[
                 [
-                    Button.url("𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋", url="t.me/Snowball_Official"),
-                    Button.url("𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/Roofiverse/"),
+                    Button.url("𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋", url="t.me/anime_supernova"),
+                    Button.url("𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/supernovanetwork/"),
                 ]
             ],
         )
