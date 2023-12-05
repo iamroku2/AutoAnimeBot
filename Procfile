@@ -1,1 +1,1 @@
-python3 -m bot --samedb
+worker: python3 -m bot --samedb
