@@ -321,7 +321,7 @@ bot.loop.run_until_complete(notify_about_me())
 # Webhook for upload and other stuffs
 try:
     bot.loop.run_until_complete(
-        syst("https://subsplease.org/rss/?r=1080")
+        syst("https://subsplease.org/rss/?r=1080", "link2")
     )
 
     # loop
