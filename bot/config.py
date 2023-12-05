@@ -39,7 +39,7 @@ class Var:
     # Other Configs
 
     THUMB = config(
-        "THUMBNAIL", default="https://graph.org/file/37d9d0657d51e01a71f26.jpg"
+        "THUMBNAIL", default="https://telegra.ph/file/a68a60ec470d08fee3945.jpg"
     )
     FFMPEG = config("FFMPEG", default="ffmpeg")
     SEND_SCHEDULE = config("SEND_SCHEDULE", default=False, cast=bool)
