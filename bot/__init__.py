@@ -67,13 +67,9 @@ def ask_(db: Redis):
 
     if "--newdb" in sys.argv:
         db.flushall()
-    elif "--samedb" in sys.argv:
-        pass
-    else:
-        todo = str(input("Want To Flush Database [Y/N]: "))
-        if todo.lower() == "y":
-            db.flushall()
-            LOGS.info("Successfully Flushed The Database!!!")
+    elif "--samedb" in sys.argv or os.getenv("FLUSH_DATABASE", "").lower() == "y":
+        db.flushall()
+        LOGS.info("Successfully Flushed The Database!!!")
 
 
 def loader(mem: dict, db: Redis, logger):
