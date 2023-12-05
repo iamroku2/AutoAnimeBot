@@ -129,8 +129,8 @@ async def notify_about_me():
         btn = [
             [
                 [Button.url(
-                    "𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 👨‍💻", url="t.me/Snowball_Official"]
-                          ),
+                    "𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 👨‍💻", url="t.me/Snowball_Official"
+                    ] 
                 Button.url("⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/Rokubotz"),
                 Button.url("🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍", url="https://t.me/Roofiverse/"
                 ),
