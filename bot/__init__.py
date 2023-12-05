@@ -31,7 +31,7 @@ from .config import Var
 basicConfig(
     format="%(asctime)s || %(name)s [%(levelname)s] : %(message)s",
     handlers=[
-        FileHandler("AutoAnimeBot.log", mode="w", encoding="universal"),
+        FileHandler("AutoAnimeBot.log", mode="w"),
         StreamHandler(),
     ],
     level=INFO,
