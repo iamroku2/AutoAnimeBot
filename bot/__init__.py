@@ -31,7 +31,7 @@ from .config import Var
 basicConfig(
     format="%(asctime)s || %(name)s [%(levelname)s] : %(message)s",
     handlers=[
-        FileHandler("AutoAnimeBot.log", mode="w"),
+        FileHandler("AutoAnimeBot.log", mode="w", encoding="utf-8"),
         StreamHandler(),
     ],
     level=INFO,
@@ -47,7 +47,7 @@ MEM = {}
 LOGS.info(
     """
                         Auto Anime Bot
-                ©️ t.me/Snowball_Official (github.com/snowball-0)
+                ©️ t.me/kAiF_00z (github.com/kaif-00z)
                         v0.0.4 (original)
                              (2023)
                        [All Rigth Reserved]
@@ -63,13 +63,15 @@ if os.cpu_count() < 4:
 
 
 def ask_(db: Redis):
-    import sys
-
+    
+    import sys 
+    
     if "--newdb" in sys.argv:
         db.flushall()
     elif "--samedb" in sys.argv or os.getenv("FLUSH_DATABASE", "").lower() == "y":
         db.flushall()
         LOGS.info("Successfully Flushed The Database!!!")
+
 
 
 def loader(mem: dict, db: Redis, logger):
@@ -130,7 +132,8 @@ async def notify_about_me():
             [
                 Button.url("⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/Rokubotz"),
                 Button.url("🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍", url="https://t.me/Roofiverse/"
-                ),
+                           
+              ),
             ]
         ]
         await bot.send_message(
