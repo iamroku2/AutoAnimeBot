@@ -31,7 +31,7 @@ from .config import Var
 basicConfig(
     format="%(asctime)s || %(name)s [%(levelname)s] : %(message)s",
     handlers=[
-        FileHandler("AutoAnimeBot.log", mode="w", encoding="utf-8"),
+        FileHandler("AutoAnimeBot.log", mode="w", encoding="universal"),
         StreamHandler(),
     ],
     level=INFO,
@@ -132,7 +132,7 @@ async def notify_about_me():
             return await pyro.start()
         btn = [
             [
-                Button.url("𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 👨‍💻", url="t.me/Snowball_Official"
+                Button.url("𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 👨‍💻", url="t.me/Snowball_Official"]
                           ),
                 Button.url("⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/Rokubotz"),
                 Button.url(
