@@ -47,7 +47,7 @@ MEM = {}
 LOGS.info(
     """
                         Auto Anime Bot
-                ©️ t.me/kAiF_00z (github.com/kaif-00z)
+                ©️ t.me/Snowball_Official (github.com/snowball-0)
                         v0.0.4 (original)
                              (2023)
                        [All Rigth Reserved]
@@ -132,9 +132,10 @@ async def notify_about_me():
             return await pyro.start()
         btn = [
             [
-                Button.url("Developer 👨‍💻", url="t.me/kaif_00z"),
+                Button.url("𝖣𝖾𝗏𝖾𝗅𝗈𝗉𝖾𝗋 👨‍💻", url="t.me/Snowball_Official"),
+                Button.url("⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/Rokubotz"),
                 Button.url(
-                    "Source Code 📂", url="https://github.com/kaif-00z/AutoAnimeBot/"
+                    "🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍", url="https://t.me/Roofiverse/"
                 ),
             ]
         ]
