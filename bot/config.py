@@ -42,5 +42,5 @@ class Var:
         "THUMBNAIL", default="https://telegra.ph/file/a68a60ec470d08fee3945.jpg"
     )
     FFMPEG = config("FFMPEG", default="ffmpeg")
-    SEND_SCHEDULE = config("SEND_SCHEDULE", default=False, cast=bool)
+    SEND_SCHEDULE = config("SEND_SCHEDULE", default=True, cast=bool)
     RESTART_EVERDAY = config("RESTART_EVERDAY", default=True, cast=bool)
