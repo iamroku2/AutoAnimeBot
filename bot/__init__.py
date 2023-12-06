@@ -130,8 +130,8 @@ async def notify_about_me():
             return await pyro.start()
         btn = [
             [
-                Button.url("⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/Rokubotz"),
-                Button.url("🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍", url="https://t.me/Roofiverse/"
+                Button.url("⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/supernovanetwork"),
+                Button.url("🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍", url="https://t.me/supernovanetwork/"
                            
               ),
             ]
