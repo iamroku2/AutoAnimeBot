@@ -131,13 +131,13 @@ async def notify_about_me():
         btn = [
             [
                 Button.url("⛅ 𝖴𝗉𝖽𝖺𝗍𝖾𝗌", url="https://t.me/supernovanetwork"),
-                Button.url("🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍", url="https://t.me/supernovanetwork/"
+                Button.url("🌨️ 𝖲𝗎𝗉𝗉𝗈𝗋𝗍", url="https://t.me/anime_supernova_chat/"
                            
               ),
             ]
         ]
         await bot.send_message(
-            Var.MAIN_CHANNEL, "`Hi, Anime Lovers, How Are You?`", buttons=btn
+            Var.MAIN_CHANNEL, "`Hey There!! Folks of Supernova, How y'all doing?`", buttons=btn
         )
     except BaseException:
         pass
