@@ -229,7 +229,7 @@ async def upload(torrent_link, name, compress=False):
             post = await pyro.send_document(
                 Var.MAIN_CHANNEL,
                 out,
-                caption=f"`{rename}`",
+                caption=f"{rename}",
                 force_document=True,
                 thumb=thumb or "thumb.jpg",
             )
