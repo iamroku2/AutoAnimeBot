@@ -48,7 +48,15 @@ def get_poster(name):
     except Exception as error:
         print(error)
         return None
-
+        
+@run_async
+def get_cover(name):
+    try:
+        # Returns the custom image URL directly
+        return "https://telegra.ph/file/4f5ecffbedab637ec2a2b.jpg"
+    except Exception as error:
+        print(error)
+        return None
 
 @run_async
 def get_caption(name):
@@ -65,16 +73,6 @@ def get_caption(name):
         return ""
 
 
-@run_async
-def get_cover(name):
-    try:
-        anime_name = get_proper_name_for_func(name)
-        if anime_name:
-            anime = anilist.get_anime(anime_name)
-            return anime.get("cover_image")
-    except Exception as error:
-        print(error)
-        return None
 
 
 def get_proper_name_for_func(name):
@@ -98,7 +96,7 @@ async def _rename(name, og=None):
         anime_name = data.get("anime_title")
         if anime_name and data.get("episode_number"):
             return (
-                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(await get_english(anime_name))} [{data.get('video_resolution').replace('p', 'px264' if og else 'px265') or ''}]@OngoingAnime_Supernova.mkv".replace(
+                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
                     "‘", ""
                 )
                 .replace("’", "")
@@ -106,7 +104,7 @@ async def _rename(name, og=None):
             )
         if anime_name:
             return (
-                f"{(await get_english(anime_name))} [{data.get('video_resolution').replace('p', 'px264' if og else 'px265') or ''}]@OngoingAnime_Supernova.mkv".replace(
+                f"{(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
                     "‘", ""
                 )
                 .replace("’", "")
