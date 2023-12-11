@@ -1,4 +1,7 @@
-from AutoAnimeBot.modules.utils import format_text
+import anitopy
+from AnilistPython import Anilist
+from .func import run_async
+ import format_text
 import requests
 
 ANIME_QUERY = """
