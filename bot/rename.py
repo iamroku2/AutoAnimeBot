@@ -224,19 +224,7 @@ def get_proper_name_for_func(name):
         return anime_name
     except BaseException:
         return None
-
-
-async def _rename(name, og=None):
-    try:
-        data = anitopy.parse(name)
-        anime_name = data.get("anime_title")
-        if anime_name and data.get("episode_number"):
-            return (
-                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
-                    "‘", ""
-                )
-                .replace("’", "")
-                .strip()
+      
             )
         if anime_name:
             return (
