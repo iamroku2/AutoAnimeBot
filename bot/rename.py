@@ -202,7 +202,7 @@ def get_caption(name):
             anime = anilist.get_anime(anime_name)
             desc = anime.get("desc").strip()
             return CAPTION.format(
-                anime.get("name_english").strip() or "",
+                anime.get("name").strip() or "",
                 desc if len(desc) < 763 else desc[:760] + "...",
             )
     except BaseException:
@@ -232,7 +232,7 @@ async def _rename(name, og=None):
         anime_name = data.get("anime_title")
         if anime_name and data.get("episode_number"):
             return (
-                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
+                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
                     "‘", ""
                 )
                 .replace("’", "")
@@ -240,7 +240,7 @@ async def _rename(name, og=None):
             )
         if anime_name:
             return (
-                f"{(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
+                f"{(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
                     "‘", ""
                 )
                 .replace("’", "")
