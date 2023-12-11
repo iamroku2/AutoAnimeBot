@@ -1,22 +1,6 @@
-#    This file is part of the AutoAnime distribution.
-#    Copyright (c) 2023 Kaif_00z
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, version 3.
-#
-#    This program is distributed in the hope that it will be useful, but
-#    WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-#    General Public License for more details.
-#
-# License can be found in <
-# https://github.com/kaif-00z/AutoAnimeBot/blob/main/LICENSE > .
-
-import anitopy
 from AnilistPython import Anilist
-
-from .func import run_async
+import anitopy
+import asyncio
 
 anilist = Anilist()
 
@@ -33,11 +17,10 @@ CAPTION = """
 
 ‣ <b>Synopsis :</b> {}
 
-‣ <b>Powered By :</b> @Roofiverse & @FuZionX"""
+‣ <b>Powered By :</b> @Roofiverse & @FuZionX
+"""
 
-
-@run_async
-def get_english(anime_name):
+async def get_english(anime_name):
     try:
         anime = anilist.get_anime(anime_name)
         x = anime.get("name_english")
@@ -46,9 +29,7 @@ def get_english(anime_name):
         print(error)
         return anime_name.strip()
 
-
-@run_async
-def get_poster(name):
+async def get_poster(name):
     try:
         anime_name = get_proper_name_for_func(name)
         if anime_name:
@@ -57,17 +38,15 @@ def get_poster(name):
     except Exception as error:
         print(error)
         return None
-        
-@run_async
-def get_cover(name):
+
+async def get_cover(name):
     try:
         return "https://te.legra.ph/file/797fd901302402cd1a7c1.jpg"
     except Exception as error:
         print(error)
         return None
 
-@run_async
-def get_caption(name):
+async def get_caption(name):
     try:
         anime_name = get_proper_name_for_func(name)
         if anime_name:
@@ -84,13 +63,11 @@ def get_caption(name):
                 anime.get("airing_episodes").strip() or "",
                 desc if len(desc) < 200 else desc[:200] + "...",
             )
-    except BaseException:
+    except Exception as error:
+        print(error)
         return ""
 
-
-
-
-def get_proper_name_for_func(name):
+async def get_proper_name_for_func(name):
     try:
         data = anitopy.parse(name)
         anime_name = data.get("anime_title")
@@ -101,9 +78,9 @@ def get_proper_name_for_func(name):
                 else anime_name
             )
         return anime_name
-    except BaseException:
+    except Exception as error:
+        print(error)
         return None
-
 
 async def _rename(name, og=None):
     try:
@@ -111,7 +88,7 @@ async def _rename(name, og=None):
         anime_name = data.get("anime_title")
         if anime_name and data.get("episode_number"):
             return (
-                f"[S{data.get('anime_season') or 1}-{"E"+str(data.get('episode_number')) or ''}] {(await get_english(anime_name))} [Sub] @Roofiverse.mkv"
+                f"[S{data.get('anime_season') or 1}-{"E"+str(data.get('episode_number') or '')}] {(await get_english(anime_name))} [Sub] @Roofiverse.mkv"
                 .replace("‘", "")
                 .strip()
             )
