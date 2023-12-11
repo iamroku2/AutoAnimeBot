@@ -2,8 +2,7 @@ import anitopy
 from AnilistPython import Anilist
 from .func import run_async
 import requests
-import format_text
-import requests
+anilist = Anilist()
 
 ANIME_QUERY = """
 query ($id: Int, $idMal:Int, $search: String) {
