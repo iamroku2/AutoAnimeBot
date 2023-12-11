@@ -88,9 +88,7 @@ async def _rename(name, og=None):
         anime_name = data.get("anime_title")
         if anime_name and data.get("episode_number"):
             return (
-                f"[S{data.get('anime_season') or 1}-{"E"+str(data.get('episode_number') or '')}] {(await get_english(anime_name))} [Sub] @Roofiverse.mkv"
-                .replace("‘", "")
-                .strip()
+                f"[S{data.get('anime_season') or 1}-{'E'+str(data.get('episode_number')) if data.get('episode_number') else ''}] {(await get_english(anime_name))} [Sub] @Roofiverse.mkv"
             )
         if anime_name:
             return (
