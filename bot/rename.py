@@ -24,7 +24,7 @@ anilist = Anilist()
 async def create_anime_caption(get_anime):
         
     anime_details = await get_anime_details(get_anime)
-    if get_anime:  
+    if anime_name:  
         
 CAPTION = f"""
         <b><i>{get_anime['title']['romaji']}</i></b>
