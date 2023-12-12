@@ -1,29 +1,36 @@
-import tracemalloc
-tracemalloc.start()
+#    This file is part of the AutoAnime distribution.
+#    Copyright (c) 2023 Kaif_00z
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, version 3.
+#
+#    This program is distributed in the hope that it will be useful, but
+#    WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#    General Public License for more details.
+#
+# License can be found in <
+# https://github.com/kaif-00z/AutoAnimeBot/blob/main/LICENSE > .
 
-from AnilistPython import Anilist
 import anitopy
-import asyncio
+from AnilistPython import Anilist
+
 from .func import run_async
+
 anilist = Anilist()
 
 CAPTION = """
-<b><i>{}</i></b>
+<strong>{}</strong>
 
-‣ <b>Type :</b> {}
-‣ <b>Average Rating :</b> {}
-‣ <b>Status :</b> {}
-‣ <b>First aired :</b> {}
-‣ <b>Last aired :</b> {}
-‣ <b>Runtime :</b> {}
-‣ <b>No of Episodes :</b> {}
-
-‣ <b>Synopsis :</b> {}
+{}
 
 ‣ <b>Powered By :</b> @Roofiverse & @FuZionX
 """
 
-async def get_english(anime_name):
+
+@run_async
+def get_english(anime_name):
     try:
         anime = anilist.get_anime(anime_name)
         x = anime.get("name_english")
@@ -32,7 +39,9 @@ async def get_english(anime_name):
         print(error)
         return anime_name.strip()
 
-async def get_poster(name):
+
+@run_async
+def get_poster(name):
     try:
         anime_name = get_proper_name_for_func(name)
         if anime_name:
@@ -41,15 +50,18 @@ async def get_poster(name):
     except Exception as error:
         print(error)
         return None
-
-async def get_cover(name):
+        
+@run_async
+def get_cover(name):
     try:
-        return "https://te.legra.ph/file/797fd901302402cd1a7c1.jpg"
+        # Returns the custom image URL directly
+        return "https://telegra.ph/file/4f5ecffbedab637ec2a2b.jpg"
     except Exception as error:
         print(error)
         return None
 
-async def get_caption(name):
+@run_async
+def get_caption(name):
     try:
         anime_name = get_proper_name_for_func(name)
         if anime_name:
@@ -57,20 +69,15 @@ async def get_caption(name):
             desc = anime.get("desc").strip()
             return CAPTION.format(
                 anime.get("name_english").strip() or "",
-                anime.get("airing_format").strip() or "",
-                anime.get("average_score").strip() or "0",
-                anime.get("airing_status").strip() or "",
-                anime.get("starting_time").strip() or "",
-                anime.get("ending_time").strip() or "",
-                anime.get("duration").strip() or "",
-                anime.get("airing_episodes").strip() or "",
-                desc if len(desc) < 200 else desc[:200] + "...",
+                desc if len(desc) < 763 else desc[:760] + "...",
             )
-    except Exception as error:
-        print(error)
+    except BaseException:
         return ""
 
-async def get_proper_name_for_func(name):
+
+
+
+def get_proper_name_for_func(name):
     try:
         data = anitopy.parse(name)
         anime_name = data.get("anime_title")
@@ -81,9 +88,9 @@ async def get_proper_name_for_func(name):
                 else anime_name
             )
         return anime_name
-    except Exception as error:
-        print(error)
+    except BaseException:
         return None
+
 
 async def _rename(name, og=None):
     try:
@@ -91,12 +98,18 @@ async def _rename(name, og=None):
         anime_name = data.get("anime_title")
         if anime_name and data.get("episode_number"):
             return (
-                f"[S{data.get('anime_season') or 1}-{'E'+str(data.get('episode_number')) if data.get('episode_number') else ''}] {(await get_english(anime_name))} [Sub] @Roofiverse.mkv"
+                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
+                    "‘", ""
+                )
+                .replace("’", "")
+                .strip()
             )
         if anime_name:
             return (
-                f"{(await get_english(anime_name))} [Sub] @Roofiverse.mkv"
-                .replace("‘", "")
+                f"{(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
+                    "‘", ""
+                )
+                .replace("’", "")
                 .strip()
             )
         return name
