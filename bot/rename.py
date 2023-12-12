@@ -1,3 +1,6 @@
+import tracemalloc
+tracemalloc.start()
+
 from AnilistPython import Anilist
 import anitopy
 import asyncio
