@@ -20,20 +20,20 @@ from .func import run_async
 
 anilist = Anilist()
         CAPTION = """
-        <b><i>{}</i></b>
-        
-        ‣ <b>Type :</b> {}
-        ‣ <b>Average Rating :</b> {}
-        ‣ <b>Status :</b> {}
-        ‣ <b>First aired :</b> {}
-        ‣ <b>Last aired :</b> {}
-        ‣ <b>Runtime :</b> {}
-        ‣ <b>No of Episodes :</b> {}
-        
-        ‣ <b>Synopsis :</b> {}
-        
-        ‣ <b>Powered By :</b> @Roofiverse & @FuZionX
-        """.format(
+<b><i>{}</i></b>
+
+‣ <b>Type :</b> {}
+‣ <b>Average Rating :</b> {}
+‣ <b>Status :</b> {}
+‣ <b>First aired :</b> {}
+‣ <b>Last aired :</b> {}
+‣ <b>Runtime :</b> {}
+‣ <b>No of Episodes :</b> {}
+
+‣ <b>Synopsis :</b> {}
+
+‣ <b>Powered By :</b> @Roofiverse & @FuZionX
+""".format(
             anime_details['title']['romaji'], 
             anime_details['format'], 
             anime_details['averageScore'], 
@@ -48,6 +48,12 @@ anilist = Anilist()
         return caption
     else:
         return "Anime not found"
+
+# Example usage
+async def main():
+    anime_name = "YourAnimeTitle"  # Replace with the actual anime title
+    caption = await create_anime_caption(anime_name)
+    print(caption)  # You can then use this caption for your messaging platform
 
 
 @run_async
