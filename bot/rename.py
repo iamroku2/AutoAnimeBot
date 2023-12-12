@@ -20,19 +20,19 @@ from .func import run_async
 
 anilist = Anilist()
 
-anime_details = await get_anime_details(anime_name)
-    if anime_details:
+get_anime = await get_anime(anime_name)
+    if get_anime:
         
 CAPTION = f"""
         <b><i>{anime_details['title']['romaji']}</i></b>
 
-        ‣ <b>Type :</b> {anime_details['format']}
-        ‣ <b>Average Rating :</b> {anime_details['averageScore']}
-        ‣ <b>Status :</b> {anime_details['status']}
-        ‣ <b>First aired :</b> {anime_details['startDate']['year']}
-        ‣ <b>Last aired :</b> {anime_details['endDate']['year'] if anime_details['endDate'] else "Ongoing"}
-        ‣ <b>Runtime :</b> {anime_details['duration'] + " mins" if anime_details['duration'] else "Unknown"}
-        ‣ <b>No of Episodes :</b> {anime_details['episodes'] if anime_details['episodes'] else "Unknown"}
+        ‣ <b>Type :</b> {get_anime['format']}
+        ‣ <b>Average Rating :</b> {get_anime['averageScore']}
+        ‣ <b>Status :</b> {get_anime['status']}
+        ‣ <b>First aired :</b> {get_anime['startDate']['year']}
+        ‣ <b>Last aired :</b> {get_anime['endDate']['year'] if get_anime['endDate'] else "Ongoing"}
+        ‣ <b>Runtime :</b> {get_anime['duration'] + " mins" if get_anime['duration'] else "Unknown"}
+        ‣ <b>No of Episodes :</b> {get_anime['episodes'] if get_anime['episodes'] else "Unknown"}
 
         ‣ <b>Synopsis :</b> {anime_details['description'] if anime_details['description'] else "Not available"}
 
