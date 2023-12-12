@@ -13,15 +13,14 @@
 # License can be found in <
 # https://github.com/kaif-00z/AutoAnimeBot/blob/main/LICENSE > .
 
-from AnilistPython import Anilist
 import anitopy
-import asyncio
+from AnilistPython import Anilist
+
 from .func import run_async
 
-async def create_anime_caption(anime_name):
-    anime_details = await get_anime_details(anime_name)
-    if anime_details:
-        caption = f"""
+anilist = Anilist()
+
+CAPTION = f"""
         <b><i>{anime_details['title']['romaji']}</i></b>
 
         ‣ <b>Type :</b> {anime_details['format']}
@@ -36,9 +35,18 @@ async def create_anime_caption(anime_name):
 
         ‣ <b>Powered By :</b> @Roofiverse & @FuZionX
         """
-        return caption
-    else:
-        return "Anime not found"
+
+
+@run_async
+def get_english(anime_name):
+    try:
+        anime = anilist.get_anime(anime_name)
+        x = anime.get("name_english")
+        return x.strip() or anime_name
+    except Exception as error:
+        print(error)
+        return anime_name.strip()
+
 
 @run_async
 def get_poster(name):
