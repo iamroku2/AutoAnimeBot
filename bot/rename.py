@@ -13,25 +13,63 @@
 # License can be found in <
 # https://github.com/kaif-00z/AutoAnimeBot/blob/main/LICENSE > .
 
-import anitopy
 from AnilistPython import Anilist
+import anitopy
+import asyncio
 
-from .func import run_async
-
+# Initialize the Anilist client
 anilist = Anilist()
 
-CAPTION = """
-{} ‣ <b>Type :</b> {}
-‣ <b>Average Rating :</b>
-‣ <b>Status :</b>
-‣ <b>First aired :</b>
-‣ <b>Last aired :</b>
-‣ <b>Runtime :</b>
-‣ <b>No of Episodes :</b>
+# Function to fetch anime details
+async def get_anime_details(anime_name):
+    anime = await anilist.search(anime_name, type="ANIME")
+    if anime:
+        return anime[0]
+    else:
+        return None
 
-‣ <b>Powered By :</b> @Roofiverse & @FuZionX
-"""
+# Function to create the caption
+async def create_anime_caption(anime_name):
+    anime_details = await get_anime_details(anime_name)
+    if anime_details:
+        caption = """
+        <b><i>{}</i></b>
+        
+        ‣ <b>Type :</b> {}
+        ‣ <b>Average Rating :</b> {}
+        ‣ <b>Status :</b> {}
+        ‣ <b>First aired :</b> {}
+        ‣ <b>Last aired :</b> {}
+        ‣ <b>Runtime :</b> {}
+        ‣ <b>No of Episodes :</b> {}
+        
+        ‣ <b>Synopsis :</b> {}
+        
+        ‣ <b>Powered By :</b> @Roofiverse & @FuZionX
+        """.format(
+            anime_details['title']['romaji'], 
+            anime_details['format'], 
+            anime_details['averageScore'], 
+            anime_details['status'], 
+            anime_details['startDate']['year'], 
+            anime_details['endDate']['year'] if anime_details['endDate'] else "Ongoing",
+            anime_details['duration'] + " mins" if anime_details['duration']
+            else "Unknown",
+            anime_details['episodes'] if anime_details['episodes'] else "Unknown",
+            anime_details['description'] if anime_details['description'] else "Not available"
+        )
+        return caption
+    else:
+        return "Anime not found"
 
+# Example usage
+async def main():
+    anime_name = "YourAnimeTitle"  # Replace with the actual anime title
+    caption = await create_anime_caption(anime_name)
+    print(caption)  # You can then use this caption for your messaging platform
+
+# Run the example
+asyncio.run(main())
 
 @run_async
 def get_english(anime_name):
