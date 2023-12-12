@@ -16,23 +16,10 @@
 from AnilistPython import Anilist
 import anitopy
 import asyncio
+from .func import run_async
 
-# Initialize the Anilist client
 anilist = Anilist()
-
-# Function to fetch anime details
-async def get_anime_details(anime_name):
-    anime = await anilist.search(anime_name, type="ANIME")
-    if anime:
-        return anime[0]
-    else:
-        return None
-
-# Function to create the caption
-async def create_anime_caption(anime_name):
-    anime_details = await get_anime_details(anime_name)
-    if anime_details:
-        caption = """
+        CAPTION = """
         <b><i>{}</i></b>
         
         ‣ <b>Type :</b> {}
@@ -61,25 +48,6 @@ async def create_anime_caption(anime_name):
         return caption
     else:
         return "Anime not found"
-
-# Example usage
-async def main():
-    anime_name = "YourAnimeTitle"  # Replace with the actual anime title
-    caption = await create_anime_caption(anime_name)
-    print(caption)  # You can then use this caption for your messaging platform
-
-# Run the example
-asyncio.run(main())
-
-@run_async
-def get_english(anime_name):
-    try:
-        anime = anilist.get_anime(anime_name)
-        x = anime.get("name_english")
-        return x.strip() or anime_name
-    except Exception as error:
-        print(error)
-        return anime_name.strip()
 
 
 @run_async
