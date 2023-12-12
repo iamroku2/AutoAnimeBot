@@ -20,6 +20,9 @@ from .func import run_async
 
 anilist = Anilist()
 
+anime_details = await get_anime_details(anime_name)
+    if anime_details:
+        
 CAPTION = f"""
         <b><i>{anime_details['title']['romaji']}</i></b>
 
