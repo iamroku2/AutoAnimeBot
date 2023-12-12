@@ -28,7 +28,7 @@ def your_function():
 # Function to create the caption
 async def create_anime_caption(anime_name):
     anime_details = await get_anime_details(anime_name)
-    if anime_details:
+  anime_details:
 anilist = Anilist()
         caption = """
 
