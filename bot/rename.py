@@ -20,7 +20,6 @@ from .func import run_async
 
 if anime:
         return anime[0]
-    else:
         return None
 
 # Function to create the caption
