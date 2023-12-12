@@ -18,8 +18,11 @@ import anitopy
 import asyncio
 from .func import run_async
 
-if anime:
+def your_function():
+    # Some condition based on which you return anime[0] or None
+    if some_condition:
         return anime[0]
+    else:
         return None
 
 # Function to create the caption
