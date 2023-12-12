@@ -19,9 +19,15 @@ from AnilistPython import Anilist
 from .func import run_async
 
 anilist = Anilist()
+
+
+async def create_anime_caption(get_anime):
+        
+    anime_details = await get_anime_details(get_anime)
+    if get_anime:  
         
 CAPTION = f"""
-        <b><i>{anime_details['title']['romaji']}</i></b>
+        <b><i>{get_anime['title']['romaji']}</i></b>
 
         ‣ <b>Type :</b> {get_anime['format']}
         ‣ <b>Average Rating :</b> {get_anime['averageScore']}
