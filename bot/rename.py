@@ -19,7 +19,7 @@ import asyncio
 from .func import run_async
 
 anilist = Anilist()
-        CAPTION = """
+        caption = """
 <b><i>{}</i></b>
 
 ‣ <b>Type :</b> {}
