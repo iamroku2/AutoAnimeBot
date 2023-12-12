@@ -29,6 +29,8 @@ async def create_anime_caption(anime_name):
     if anime_details:
 anilist = Anilist()
         caption = """
+
+
 <b><i>{}</i></b>
 
 ‣ <b>Type :</b> {}
