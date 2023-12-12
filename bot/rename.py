@@ -1,7 +1,7 @@
 from AnilistPython import Anilist
 import anitopy
 import asyncio
-
+from .func import run_async
 anilist = Anilist()
 
 CAPTION = """
