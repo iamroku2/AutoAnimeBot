@@ -32,7 +32,6 @@ from .database import (
     is_compress,
     store_items,
 )
-from .dts import shu_msg
 from .func import code, cover_dl, gen_ss_sam, mediainfo, run_async, stats
 from .rename import _rename, get_caption, get_cover, get_poster
 
