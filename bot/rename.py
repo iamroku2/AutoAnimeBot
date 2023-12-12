@@ -19,8 +19,6 @@ from AnilistPython import Anilist
 from .func import run_async
 
 anilist = Anilist()
-
-get_anime = await get_anime(anime_name)
         
 CAPTION = f"""
         <b><i>{anime_details['title']['romaji']}</i></b>
