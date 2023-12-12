@@ -18,56 +18,27 @@ import anitopy
 import asyncio
 from .func import run_async
 
-def your_function():
-    # Some condition based on which you return anime[0] or None
-    if some_condition:
-        return anime[0]
-    else:
-        return None
-
-# Function to create the caption
 async def create_anime_caption(anime_name):
     anime_details = await get_anime_details(anime_name)
-  anime_details:
-anilist = Anilist()
-        caption = """
+    if anime_details:
+        caption = f"""
+        <b><i>{anime_details['title']['romaji']}</i></b>
 
+        ‣ <b>Type :</b> {anime_details['format']}
+        ‣ <b>Average Rating :</b> {anime_details['averageScore']}
+        ‣ <b>Status :</b> {anime_details['status']}
+        ‣ <b>First aired :</b> {anime_details['startDate']['year']}
+        ‣ <b>Last aired :</b> {anime_details['endDate']['year'] if anime_details['endDate'] else "Ongoing"}
+        ‣ <b>Runtime :</b> {anime_details['duration'] + " mins" if anime_details['duration'] else "Unknown"}
+        ‣ <b>No of Episodes :</b> {anime_details['episodes'] if anime_details['episodes'] else "Unknown"}
 
-<b><i>{}</i></b>
+        ‣ <b>Synopsis :</b> {anime_details['description'] if anime_details['description'] else "Not available"}
 
-‣ <b>Type :</b> {}
-‣ <b>Average Rating :</b> {}
-‣ <b>Status :</b> {}
-‣ <b>First aired :</b> {}
-‣ <b>Last aired :</b> {}
-‣ <b>Runtime :</b> {}
-‣ <b>No of Episodes :</b> {}
-
-‣ <b>Synopsis :</b> {}
-
-‣ <b>Powered By :</b> @Roofiverse & @FuZionX
-""".format(
-            anime_details['title']['romaji'], 
-            anime_details['format'], 
-            anime_details['averageScore'], 
-            anime_details['status'], 
-            anime_details['startDate']['year'], 
-            anime_details['endDate']['year'] if anime_details['endDate'] else "Ongoing",
-            anime_details['duration'] + " mins" if anime_details['duration']
-            else "Unknown",
-            anime_details['episodes'] if anime_details['episodes'] else "Unknown",
-            anime_details['description'] if anime_details['description'] else "Not available"
-        )
+        ‣ <b>Powered By :</b> @Roofiverse & @FuZionX
+        """
         return caption
     else:
         return "Anime not found"
-
-# Example usage
-async def main():
-    anime_name = "YourAnimeTitle"  # Replace with the actual anime title
-    caption = await create_anime_caption(anime_name)
-    print(caption)  # You can then use this caption for your messaging platform
-
 
 @run_async
 def get_poster(name):
