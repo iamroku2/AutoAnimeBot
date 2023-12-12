@@ -18,6 +18,15 @@ import anitopy
 import asyncio
 from .func import run_async
 
+if anime:
+        return anime[0]
+    else:
+        return None
+
+# Function to create the caption
+async def create_anime_caption(anime_name):
+    anime_details = await get_anime_details(anime_name)
+    if anime_details:
 anilist = Anilist()
         caption = """
 <b><i>{}</i></b>
