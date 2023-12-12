@@ -21,12 +21,12 @@ from .func import run_async
 anilist = Anilist()
 
 CAPTION = """
-‣ <b>Type :</b> {}
-‣ <b>Average Rating :</b> {}
-‣ <b>Status :</b> {}
-‣ <b>First aired :</b> {}
-‣ <b>Last aired :</b> {}
-‣ <b>Runtime :</b> {}
+{} ‣ <b>Type :</b>
+‣ <b>Average Rating :</b>
+‣ <b>Status :</b>
+‣ <b>First aired :</b>
+‣ <b>Last aired :</b>
+‣ <b>Runtime :</b>
 ‣ <b>No of Episodes :</b> {}
 
 ‣ <b>Powered By :</b> @Roofiverse & @FuZionX
