@@ -25,7 +25,6 @@ CAPTION = """
 
 {}
 
-
 ➜ <b>Powered By :</b> <a href=https://t.me/Roofiverse>𝖱𝗈𝗈𝖿𝗂𝗏𝖾𝗋𝗌𝖾</a> & <a href=https://t.me/FuZionX>𝖥𝗎𝖹𝗂𝗈𝗇𝖷</a>
 """
 
