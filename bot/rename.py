@@ -55,7 +55,7 @@ def get_poster(name):
 def get_cover(name):
     try:
         # Returns the custom image URL directly
-        return "https://telegra.ph/file/4f5ecffbedab637ec2a2b.jpg"
+        return "https://te.legra.ph/file/797fd901302402cd1a7c1.jpg"
     except Exception as error:
         print(error)
         return None
