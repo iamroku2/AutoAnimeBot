@@ -21,7 +21,7 @@ from .func import run_async
 anilist = Anilist()
 
 CAPTION = """
-<strong>{}</strong> | {(await get_english(anime_name))}
+<strong>{}</strong> | {}
 
 ➜ 𝖲𝗒𝗇𝗈𝗉𝗌𝗂𝗌 :<strong>{}</strong
 
