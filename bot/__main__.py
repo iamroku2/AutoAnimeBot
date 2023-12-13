@@ -305,9 +305,7 @@ async def syst(link1, link2):  # work as webhook
     for i in count():
         # await asyncio.gather(*[geter(link1, 1), geter(link2, 1)])
         await asyncio.gather(*[geter(link1), geter(link2)])
-
-
-sch.add_job(shu_msg, "cron", hour=0, minute=30)  # 12:30 am IST
+        
 
 LOGS.info("Auto Anime Bot Has Started...")
 
