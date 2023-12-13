@@ -190,7 +190,7 @@ async def upload(torrent_link, name, compress=False):
                     f"```New File Downloaded, Named {name}\nNow Going To Commpress```",
                     buttons=[[Button.inline("STATS", data=f"tas_{_code}")]],
                 )
-                cmd = f'''{Var.FFMPEG} -i """{dl}""" -preset faster -c:v libx265 -s 1280x720 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 1  -metadata title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata author=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata:s:s title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata:s:a title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata:s:v title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 """{out}""" -y'''
+                cmd = f'''{Var.FFMPEG} -i """{dl}""" -preset faster -c:v libx265 -x265-params 'bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1' -pix_fmt yuv420p -crf 30 -c:a libopus -b:a 32k -c:s copy -map 0 -ac 2 -ab 32k -vbr 2 -level 3.1 -threads 1  -metadata title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata author=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata:s:s title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata:s:a title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 -metadata:s:v title=𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆:@𝖫𝗈𝗐_𝖬𝖻_𝖹𝗈𝗇𝖾 """{out}""" -y'''
                 process = await asyncio.create_subprocess_shell(
                     cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
                 )
