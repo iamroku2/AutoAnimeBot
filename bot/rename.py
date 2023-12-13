@@ -20,27 +20,11 @@ from .func import run_async
 
 anilist = Anilist()
 
+CAPTION = """
+<strong>{}</strong>
 
-async def create_anime_caption(get_anime):
-        
-    anime_details = await get_anime_details(get_anime)
-    if anime_name:  
-        
-CAPTION = f"""
-        <b><i>{get_anime['title']['romaji']}</i></b>
-
-        ‣ <b>Type :</b> {get_anime['format']}
-        ‣ <b>Average Rating :</b> {get_anime['averageScore']}
-        ‣ <b>Status :</b> {get_anime['status']}
-        ‣ <b>First aired :</b> {get_anime['startDate']['year']}
-        ‣ <b>Last aired :</b> {get_anime['endDate']['year'] if get_anime['endDate'] else "Ongoing"}
-        ‣ <b>Runtime :</b> {get_anime['duration'] + " mins" if get_anime['duration'] else "Unknown"}
-        ‣ <b>No of Episodes :</b> {get_anime['episodes'] if get_anime['episodes'] else "Unknown"}
-
-        ‣ <b>Synopsis :</b> {anime_details['description'] if anime_details['description'] else "Not available"}
-
-        ‣ <b>Powered By :</b> @Roofiverse & @FuZionX
-        """
+{}
+"""
 
 
 @run_async
@@ -112,7 +96,7 @@ async def _rename(name, og=None):
         anime_name = data.get("anime_title")
         if anime_name and data.get("episode_number"):
             return (
-                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
+                f"[S{data.get('anime_season') or 1}-{data.get('episode_number') or ''}] {(await get_english(anime_name))} [Sub] @Roofiverse.mkv".replace(
                     "‘", ""
                 )
                 .replace("’", "")
@@ -120,7 +104,7 @@ async def _rename(name, og=None):
             )
         if anime_name:
             return (
-                f"{(await get_english(anime_name))} [1080p] @OngoingAnime_Supernova.mkv".replace(
+                f"{(await get_english(anime_name))} [Sub] @Roofiverse.mkv".replace(
                     "‘", ""
                 )
                 .replace("’", "")
